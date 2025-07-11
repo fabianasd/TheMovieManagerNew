@@ -39,8 +39,17 @@ public class TheMovieManagerNewViewController: UIViewController {
         base.view.autoresizingMask = [.flexibleWidth, .flexibleHeight]
         base.didMove(toParent: self)
 
-        view.backgroundColor = .white
+        view.backgroundColor = .black
     }
+    
+    public override var preferredStatusBarStyle: UIStatusBarStyle {
+        return .lightContent
+    }
+
+    public override var childForStatusBarStyle: UIViewController? {
+        return base
+    }
+
 }
 
 extension TheMovieManagerNewViewController: BaseViewControllerDelegate {}

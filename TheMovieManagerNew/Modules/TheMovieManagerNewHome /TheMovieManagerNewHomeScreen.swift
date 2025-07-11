@@ -24,12 +24,12 @@ class TheMovieManagerNewScreen: UIView {
         return stackView
     }()
 
-    private let historyLabel: UILabel = {
+    private let titleLabel: UILabel = {
         let label = UILabel()
-        label.font = .preferredFont(forTextStyle: .headline)
-        label.textColor = .label
-        label.numberOfLines = 0
-        label.text = "Filmes"
+        label.text = "Sign In"
+        label.textColor = .white
+        label.font = .systemFont(ofSize: 28, weight: .bold)
+        label.textAlignment = .left
         return label
     }()
 
@@ -52,7 +52,7 @@ extension TheMovieManagerNewScreen: CodeView {
     func buildViewHierarchy() {
         addSubview(scrollView)
         scrollView.addSubview(containerView)
-        containerView.addArrangedSubview(historyLabel)
+        containerView.addArrangedSubview(titleLabel)
     }
 
     func setupConstraints() {
@@ -67,6 +67,6 @@ extension TheMovieManagerNewScreen: CodeView {
     }
     
     func setupAdditionalConfiguration() {
-        backgroundColor = .white
+        backgroundColor = .black
     }
 }

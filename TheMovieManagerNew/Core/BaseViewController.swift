@@ -14,21 +14,46 @@ class BaseViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        setupNavigationBarAppearance()
         setupBaseLayout()
     }
+    
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return .lightContent
+    }
+
+
 
     // MARK: - Private Methods
-
+    
+    private func setupNavigationBarAppearance() {
+        let appearance = UINavigationBarAppearance()
+        appearance.configureWithTransparentBackground()
+        appearance.backgroundColor = .clear
+        appearance.shadowColor = .clear
+        appearance.titleTextAttributes = [
+            .foregroundColor: UIColor.white, // texto branco
+            .font: UIFont.boldSystemFont(ofSize: 17)
+        ]
+        
+        navBar.standardAppearance = appearance
+        navBar.scrollEdgeAppearance = appearance
+        navBar.compactAppearance = appearance
+        navBar.tintColor = .white
+    }
+    
     private func setupBaseLayout() {
-        view.backgroundColor = .systemBlue
+        view.backgroundColor = .black
 
         view.addSubview(navBar)
         navBar.snp.makeConstraints { make in
             make.top.equalTo(view.safeAreaLayoutGuide.snp.top)
             make.leading.trailing.equalToSuperview()
+            make.height.equalTo(44)
         }
     }
 
+    
     func addBaseTo(_ contentView: UIView) {
         view.layoutIfNeeded()
         view.addSubview(contentView)
