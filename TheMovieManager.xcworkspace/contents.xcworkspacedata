@@ -2,7 +2,13 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "group:TheMovieManagerNew/TheMovieManagerNew.xcodeproj">
+      location = "group:TheMovieManagerMVC/TheMovieManagerMVC.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:TheMovieManagerVIPER/TheMovieManagerVIPER.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:TheMovieManagerMVVM/TheMovieManagerMVVM.xcodeproj">
    </FileRef>
    <FileRef
       location = "group:TheMovieManager/TheMovieManager.xcodeproj">
