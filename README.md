@@ -1,4 +1,4 @@
-# 🎬 TheMovieManagerNew
+# 🎬 TheMovieManager(Em construção...)
 
 **TheMovieManagerNew** é um aplicativo de gestão de filmes desenvolvido em **Swift** e **SwiftUI**, com foco em boas práticas de arquitetura e organização de código. O projeto explora diferentes padrões arquiteturais aplicados em três apps distintos dentro de um mesmo workspace, além de consumir APIs públicas para exibição e organização de filmes.
 
