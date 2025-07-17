@@ -10,7 +10,4 @@
    <FileRef
       location = "group:TheMovieManagerMVVM/TheMovieManagerMVVM.xcodeproj">
    </FileRef>
-   <FileRef
-      location = "group:TheMovieManager/TheMovieManager.xcodeproj">
-   </FileRef>
 </Workspace>
