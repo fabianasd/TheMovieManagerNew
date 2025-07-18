@@ -146,9 +146,9 @@
 		D30AFA262E28370D00F95CE5 /* TheMovieManager */ = {
 			isa = PBXGroup;
 			children = (
-				D30AFA272E28370D00F95CE5 /* Controller */,
 				D30AFA2E2E28370D00F95CE5 /* Model */,
 				D30AFA402E28370D00F95CE5 /* View */,
+				D30AFA272E28370D00F95CE5 /* Controller */,
 			);
 			path = TheMovieManager;
 			sourceTree = "<group>";

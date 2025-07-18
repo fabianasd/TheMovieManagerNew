@@ -101,7 +101,6 @@
 				D3DE75752E27E62300763CDD /* TheMovieManagerVIPERTests */,
 				D3E5D2592E27E7CD000EE02C /* TheMovieManagerViperDemo */,
 				D3DE75682E27E62300763CDD /* Products */,
-				D3E5D26C2E27E880000EE02C /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -174,13 +173,6 @@
 				D3E5D2682E27E7CF000EE02C /* Info.plist */,
 			);
 			path = TheMovieManagerViperDemo;
-			sourceTree = "<group>";
-		};
-		D3E5D26C2E27E880000EE02C /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

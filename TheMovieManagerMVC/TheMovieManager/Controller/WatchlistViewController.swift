@@ -9,7 +9,7 @@ class WatchlistViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         //chamada para TMDBClient. Nesse modelo a matriz resultante de filmes é definida como a matriz no modelo de filme
-        _ = TMDBClient.getWatchlist() { movies, error in
+        TMDBClient.getWatchlist() { movies, error in
             MovieModel.watchlist = movies
             self.tableView.reloadData()
         }
