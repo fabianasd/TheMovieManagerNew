@@ -1,12 +1,12 @@
 import SwiftUI
 
 struct TheMovieManagerLoginView: View {
-    @ObservedObject var viewModel: LoginViewModel
+    @StateObject var viewModel = LoginViewModel()
 
     var body: some View {
         ZStack {
             Color.black.ignoresSafeArea()
-            
+
             VStack {
                 ScrollView {
                     VStack(alignment: .leading, spacing: 24) {
@@ -15,57 +15,69 @@ struct TheMovieManagerLoginView: View {
                             .foregroundColor(.red)
                             .frame(maxWidth: .infinity)
                             .multilineTextAlignment(.center)
-                        
+
+                        Spacer().frame(height: 48)
+
                         Text("Sign In")
                             .font(.system(size: 20, weight: .bold))
                             .foregroundColor(.white)
-                        
-                        TextField("Email", text: $viewModel.email)
+
+                        TextField("", text: $viewModel.username, prompt: Text("Email").foregroundColor(.white.opacity(0.2)))
                             .padding(.horizontal, 12)
                             .frame(height: 48)
                             .background(Color(white: 0.2))
                             .cornerRadius(6)
                             .foregroundColor(.white)
-                        
-                        SecureField("Password", text: $viewModel.password)
+                            .autocapitalization(.none)
+
+                        SecureField("", text: $viewModel.password, prompt: Text("Password").foregroundColor(.white.opacity(0.2)))
                             .padding(.horizontal, 12)
                             .frame(height: 48)
                             .background(Color(white: 0.2))
                             .cornerRadius(6)
                             .foregroundColor(.white)
-                        
-                        Button("Login") {
-                            viewModel.login()
+
+                        Spacer().frame(height: 30)
+
+                        if viewModel.isLoading {
+                            ProgressView()
+                                .frame(maxWidth: .infinity)
+                        } else {
+                            Button("Login") {
+                                Task {
+                                    await viewModel.login()
+                                }
+                            }
+                            .frame(maxWidth: .infinity)
+                            .frame(height: 48)
+                            .background(Color.red)
+                            .foregroundColor(.white)
+                            .cornerRadius(6)
+                            .font(.system(size: 16, weight: .bold))
                         }
-                        .frame(maxWidth: .infinity)
-                        .frame(height: 48)
-                        .background(Color.red)
-                        .foregroundColor(.white)
-                        .cornerRadius(6)
-                        .font(.system(size: 16, weight: .bold))
-                        
-                        Button("Login via Website") {
-                            viewModel.loginViaWebsite()
+
+                        if let error = viewModel.errorMessage {
+                            Text(error)
+                                .foregroundColor(.red)
+                                .font(.footnote)
                         }
-                        .frame(maxWidth: .infinity)
-                        .frame(height: 48)
-                        .background(Color.red)
-                        .foregroundColor(.white)
-                        .cornerRadius(6)
-                        .font(.system(size: 16, weight: .bold))
-                        
+
                         Spacer().frame(height: 48)
                     }
                     .padding(.top, 30)
                     .padding(.horizontal, 16)
                 }
-                
+
                 Text("This product uses the TMDb API but is not endorsed or certified by TMDb.")
                     .font(.system(size: 16, weight: .medium))
                     .foregroundColor(.white)
                     .multilineTextAlignment(.leading)
                     .padding(.horizontal, 16)
                     .padding(.bottom, 16)
+
+                NavigationLink(destination: Text("Main View"), isActive: $viewModel.isAuthenticated) {
+                    EmptyView()
+                }
             }
         }
     }
