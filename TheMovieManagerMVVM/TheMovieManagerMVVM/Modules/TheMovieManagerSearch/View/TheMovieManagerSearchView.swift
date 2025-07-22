@@ -1,10 +1,10 @@
 import SwiftUI
 
-struct TheMovieManagerSearchView: View {
+public struct TheMovieManagerSearchView: View {
     @ObservedObject var viewModel: SearchViewModel
     @State private var isEditing = false
 
-    var body: some View {
+   public var body: some View {
         NavigationView {
             VStack {
                 TextField("Search movies...", text: $viewModel.query)

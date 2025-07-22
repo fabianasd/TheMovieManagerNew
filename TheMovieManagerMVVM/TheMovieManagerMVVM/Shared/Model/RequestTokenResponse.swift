@@ -3,8 +3,8 @@ import Foundation
 struct RequestTokenResponse: Codable {
     
     let success: Bool
-    let expiresAt: String
-    let requestToken: String
+    let expiresAt: String?
+    let requestToken: String?
 
     enum CodingKeys: String, CodingKey {
         case success

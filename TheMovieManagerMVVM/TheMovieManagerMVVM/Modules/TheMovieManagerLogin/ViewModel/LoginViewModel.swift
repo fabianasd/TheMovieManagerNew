@@ -1,14 +1,15 @@
 import Foundation
-import TheMovieManagerMVVM
 
 @MainActor
-class LoginViewModel: ObservableObject {
+public class LoginViewModel: ObservableObject {
     @Published var username: String = ""
     @Published var password: String = ""
     @Published var isLoading = false
     @Published var errorMessage: String?
     @Published var isAuthenticated = false
 
+    public init() {}
+    
     func login() async {
         isLoading = true
         errorMessage = nil

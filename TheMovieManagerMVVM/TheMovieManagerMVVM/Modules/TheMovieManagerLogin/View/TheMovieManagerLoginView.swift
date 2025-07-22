@@ -1,82 +1,91 @@
 import SwiftUI
 
-struct TheMovieManagerLoginView: View {
-    @StateObject var viewModel = LoginViewModel()
+public struct TheMovieManagerLoginView: View {
+    @StateObject var viewModel: LoginViewModel
 
-    var body: some View {
-        ZStack {
-            Color.black.ignoresSafeArea()
+    public init(viewModel: LoginViewModel) {
+         _viewModel = StateObject(wrappedValue: viewModel)
+     }
 
-            VStack {
-                ScrollView {
-                    VStack(alignment: .leading, spacing: 24) {
-                        Text("THE MOVIE")
-                            .font(.system(size: 28, weight: .bold))
-                            .foregroundColor(.red)
-                            .frame(maxWidth: .infinity)
-                            .multilineTextAlignment(.center)
-
-                        Spacer().frame(height: 48)
-
-                        Text("Sign In")
-                            .font(.system(size: 20, weight: .bold))
-                            .foregroundColor(.white)
-
-                        TextField("", text: $viewModel.username, prompt: Text("Email").foregroundColor(.white.opacity(0.2)))
-                            .padding(.horizontal, 12)
-                            .frame(height: 48)
-                            .background(Color(white: 0.2))
-                            .cornerRadius(6)
-                            .foregroundColor(.white)
-                            .autocapitalization(.none)
-
-                        SecureField("", text: $viewModel.password, prompt: Text("Password").foregroundColor(.white.opacity(0.2)))
-                            .padding(.horizontal, 12)
-                            .frame(height: 48)
-                            .background(Color(white: 0.2))
-                            .cornerRadius(6)
-                            .foregroundColor(.white)
-
-                        Spacer().frame(height: 30)
-
-                        if viewModel.isLoading {
-                            ProgressView()
-                                .frame(maxWidth: .infinity)
-                        } else {
-                            Button("Login") {
-                                Task {
-                                    await viewModel.login()
-                                }
-                            }
-                            .frame(maxWidth: .infinity)
-                            .frame(height: 48)
-                            .background(Color.red)
-                            .foregroundColor(.white)
-                            .cornerRadius(6)
-                            .font(.system(size: 16, weight: .bold))
-                        }
-
-                        if let error = viewModel.errorMessage {
-                            Text(error)
+    public var body: some View {
+        NavigationStack {
+            ZStack {
+                Color.black.ignoresSafeArea()
+                
+                VStack {
+                    ScrollView {
+                        VStack(alignment: .leading, spacing: 24) {
+                            Text("THE MOVIE")
+                                .font(.system(size: 28, weight: .bold))
                                 .foregroundColor(.red)
-                                .font(.footnote)
+                                .frame(maxWidth: .infinity)
+                                .multilineTextAlignment(.center)
+                            
+                            Spacer().frame(height: 48)
+                            
+                            Text("Sign In")
+                                .font(.system(size: 20, weight: .bold))
+                                .foregroundColor(.white)
+                            
+                            TextField("", text: $viewModel.username, prompt: Text("Email").foregroundColor(.white.opacity(0.2)))
+                                .padding(.horizontal, 12)
+                                .frame(height: 48)
+                                .background(Color(white: 0.2))
+                                .cornerRadius(6)
+                                .foregroundColor(.white)
+                                .autocapitalization(.none)
+                            
+                            SecureField("", text: $viewModel.password, prompt: Text("Password").foregroundColor(.white.opacity(0.2)))
+                                .padding(.horizontal, 12)
+                                .frame(height: 48)
+                                .background(Color(white: 0.2))
+                                .cornerRadius(6)
+                                .foregroundColor(.white)
+                            
+                            Spacer().frame(height: 30)
+                            
+                            if viewModel.isLoading {
+                                ProgressView()
+                                    .frame(maxWidth: .infinity)
+                            } else {
+                                Button("Login") {
+                                    Task {
+                                        await viewModel.login()
+                                    }
+                                }
+                                .frame(maxWidth: .infinity)
+                                .frame(height: 48)
+                                .background(Color.red)
+                                .foregroundColor(.white)
+                                .cornerRadius(6)
+                                .font(.system(size: 16, weight: .bold))
+                            }
+                            
+                            if let error = viewModel.errorMessage {
+                                Text(error)
+                                    .foregroundColor(.red)
+                                    .font(.footnote)
+                            }
+                            
+                            Spacer().frame(height: 48)
                         }
-
-                        Spacer().frame(height: 48)
+                        .padding(.top, 30)
+                        .padding(.horizontal, 16)
                     }
-                    .padding(.top, 30)
-                    .padding(.horizontal, 16)
-                }
-
-                Text("This product uses the TMDb API but is not endorsed or certified by TMDb.")
-                    .font(.system(size: 16, weight: .medium))
-                    .foregroundColor(.white)
-                    .multilineTextAlignment(.leading)
-                    .padding(.horizontal, 16)
-                    .padding(.bottom, 16)
-
-                NavigationLink(destination: Text("Main View"), isActive: $viewModel.isAuthenticated) {
-                    EmptyView()
+                    
+                    Text("This product uses the TMDb API but is not endorsed or certified by TMDb.")
+                        .font(.system(size: 16, weight: .medium))
+                        .foregroundColor(.white)
+                        .multilineTextAlignment(.leading)
+                        .padding(.horizontal, 16)
+                        .padding(.bottom, 16)
+                    
+                    NavigationLink(
+                        destination: TheMovieManagerSearchView(viewModel: SearchViewModel()),
+                        isActive: $viewModel.isAuthenticated
+                    ) {
+                        EmptyView()
+                    }
                 }
             }
         }

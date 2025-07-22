@@ -64,8 +64,8 @@ public struct TMDBClient {
         let url = Endpoints.getRequestToken.url
         let (data, _) = try await URLSession.shared.data(from: url)
         let response = try JSONDecoder().decode(RequestTokenResponse.self, from: data)
-        Auth.requestToken = response.requestToken
-        return response.requestToken
+        Auth.requestToken = response.requestToken ?? ""
+        return response.requestToken ?? ""
     }
 
     public static func login(username: String, password: String, requestToken: String) async throws -> Bool {
@@ -78,7 +78,7 @@ public struct TMDBClient {
 
         let (data, _) = try await URLSession.shared.data(for: request)
         let response = try JSONDecoder().decode(RequestTokenResponse.self, from: data)
-        Auth.requestToken = response.requestToken
+        Auth.requestToken = response.requestToken ?? ""
         return true
     }
 
@@ -92,8 +92,8 @@ public struct TMDBClient {
 
         let (data, _) = try await URLSession.shared.data(for: request)
         let response = try JSONDecoder().decode(SessionResponse.self, from: data)
-        Auth.sessionId = response.sessionId
-        return response.sessionId
+        Auth.sessionId = response.sessionId ?? ""
+        return response.sessionId ?? ""
     }
 
     public static func logout() async {

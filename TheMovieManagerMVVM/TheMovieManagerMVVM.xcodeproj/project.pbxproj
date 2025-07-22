@@ -7,8 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		D3752D4E2E29FB8B0057A766 /* TheMovieManagerLoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3752D4A2E29FA820057A766 /* TheMovieManagerLoginView.swift */; };
-		D3752D502E29FBF30057A766 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D380A7D82E289FE100312BE7 /* LoginViewModel.swift */; };
 		D3752D622E2C7A2A0057A766 /* TheMovieManagerSearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3752D612E2C7A2A0057A766 /* TheMovieManagerSearchView.swift */; };
 		D3752D642E2C7A380057A766 /* SearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3752D632E2C7A380057A766 /* SearchViewModel.swift */; };
 		D3752D682E2C7AD10057A766 /* TMDBClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3752D672E2C7AD10057A766 /* TMDBClient.swift */; };
@@ -35,9 +33,11 @@
 		D3BDFE842E2C9848008C0FF0 /* MovieModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3BDFE832E2C9848008C0FF0 /* MovieModel.swift */; };
 		D3DE754C2E27E59900763CDD /* TheMovieManagerMVVM.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D3DE75412E27E59800763CDD /* TheMovieManagerMVVM.framework */; };
 		D3DE75512E27E59900763CDD /* TheMovieManagerMVVMTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3DE75502E27E59900763CDD /* TheMovieManagerMVVMTests.swift */; };
+		D3F8A1CC2E2FD6DB00F7F851 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D380A7EE2E28A0CC00312BE7 /* SceneDelegate.swift */; };
+		D3F8A1D12E2FD82B00F7F851 /* TheMovieManagerLoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3752D4A2E29FA820057A766 /* TheMovieManagerLoginView.swift */; };
+		D3F8A1D32E2FD88D00F7F851 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D380A7D82E289FE100312BE7 /* LoginViewModel.swift */; };
 		D3F8D0C52E29F42300730332 /* TheMovieManagerMVVM.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D3DE75412E27E59800763CDD /* TheMovieManagerMVVM.framework */; };
 		D3F94B812E29F79F0041BA2D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D380A7EC2E28A0CC00312BE7 /* AppDelegate.swift */; };
-		D3F94B822E29F79F0041BA2D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D380A7EE2E28A0CC00312BE7 /* SceneDelegate.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -531,10 +531,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D3752D502E29FBF30057A766 /* LoginViewModel.swift in Sources */,
-				D3752D4E2E29FB8B0057A766 /* TheMovieManagerLoginView.swift in Sources */,
 				D3F94B812E29F79F0041BA2D /* AppDelegate.swift in Sources */,
-				D3F94B822E29F79F0041BA2D /* SceneDelegate.swift in Sources */,
+				D3F8A1CC2E2FD6DB00F7F851 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -562,7 +560,9 @@
 				D3752D7D2E2C834E0057A766 /* SessionResponse.swift in Sources */,
 				D3752D772E2C80960057A766 /* TheMovieManagerMovieDetailViewModel.swift in Sources */,
 				D3752D962E2C8F260057A766 /* Movie+Extensions.swift in Sources */,
+				D3F8A1D32E2FD88D00F7F851 /* LoginViewModel.swift in Sources */,
 				D3752D7F2E2C83640057A766 /* MovieResults.swift in Sources */,
+				D3F8A1D12E2FD82B00F7F851 /* TheMovieManagerLoginView.swift in Sources */,
 				D3752D742E2C7FD50057A766 /* TheMovieManagerFavoritesViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

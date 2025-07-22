@@ -1,7 +1,7 @@
 import Foundation
 
 @MainActor
-class SearchViewModel: ObservableObject {
+public class SearchViewModel: ObservableObject {
     @Published var movies: [Movie] = []
     @Published var query: String = ""
 
