@@ -36,6 +36,7 @@
 		D3F8A1CC2E2FD6DB00F7F851 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D380A7EE2E28A0CC00312BE7 /* SceneDelegate.swift */; };
 		D3F8A1D12E2FD82B00F7F851 /* TheMovieManagerLoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3752D4A2E29FA820057A766 /* TheMovieManagerLoginView.swift */; };
 		D3F8A1D32E2FD88D00F7F851 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D380A7D82E289FE100312BE7 /* LoginViewModel.swift */; };
+		D3F8A1D62E31624700F7F851 /* BackButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3F8A1D52E31624700F7F851 /* BackButton.swift */; };
 		D3F8D0C52E29F42300730332 /* TheMovieManagerMVVM.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D3DE75412E27E59800763CDD /* TheMovieManagerMVVM.framework */; };
 		D3F94B812E29F79F0041BA2D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D380A7EC2E28A0CC00312BE7 /* AppDelegate.swift */; };
 /* End PBXBuildFile section */
@@ -91,6 +92,7 @@
 		D3DE75412E27E59800763CDD /* TheMovieManagerMVVM.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = TheMovieManagerMVVM.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D3DE754B2E27E59900763CDD /* TheMovieManagerMVVMTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TheMovieManagerMVVMTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D3DE75502E27E59900763CDD /* TheMovieManagerMVVMTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TheMovieManagerMVVMTests.swift; sourceTree = "<group>"; };
+		D3F8A1D52E31624700F7F851 /* BackButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackButton.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -265,6 +267,7 @@
 		D380A7DC2E28A00100312BE7 /* Shared */ = {
 			isa = PBXGroup;
 			children = (
+				D3F8A1D42E31622300F7F851 /* Components */,
 				D3BDFE822E2C9838008C0FF0 /* Storage */,
 				D3BDFE802E2C9544008C0FF0 /* Model */,
 				D3BDFE812E2C9656008C0FF0 /* Requests */,
@@ -382,6 +385,14 @@
 				D380A7D32E289F8600312BE7 /* Model */,
 			);
 			path = TheMovieManagerLogin;
+			sourceTree = "<group>";
+		};
+		D3F8A1D42E31622300F7F851 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				D3F8A1D52E31624700F7F851 /* BackButton.swift */,
+			);
+			path = Components;
 			sourceTree = "<group>";
 		};
 		D3F8D0C42E29F42300730332 /* Frameworks */ = {
@@ -544,6 +555,7 @@
 				D3752D682E2C7AD10057A766 /* TMDBClient.swift in Sources */,
 				D3752D6A2E2C7D5B0057A766 /* TMDBResponse.swift in Sources */,
 				D3752D902E2C8DF70057A766 /* TMDBTypes.swift in Sources */,
+				D3F8A1D62E31624700F7F851 /* BackButton.swift in Sources */,
 				D3752D702E2C7F130057A766 /* Movie.swift in Sources */,
 				D3752D852E2C8D600057A766 /* MarkFavorite.swift in Sources */,
 				D3752D8E2E2C8DA20057A766 /* MarkWatchlist.swift in Sources */,

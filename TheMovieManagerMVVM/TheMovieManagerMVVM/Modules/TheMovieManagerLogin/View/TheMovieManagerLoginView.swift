@@ -11,7 +11,6 @@ public struct TheMovieManagerLoginView: View {
         NavigationStack {
             ZStack {
                 Color.black.ignoresSafeArea()
-                
                 VStack {
                     ScrollView {
                         VStack(alignment: .leading, spacing: 24) {

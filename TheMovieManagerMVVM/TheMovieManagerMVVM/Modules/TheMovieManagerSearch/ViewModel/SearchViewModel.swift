@@ -4,6 +4,7 @@ import Foundation
 public class SearchViewModel: ObservableObject {
     @Published var movies: [Movie] = []
     @Published var query: String = ""
+    @Published var isLoading = false
 
     private var currentTask: Task<Void, Never>? = nil
 
@@ -13,8 +14,11 @@ public class SearchViewModel: ObservableObject {
         let searchText = query.trimmingCharacters(in: .whitespaces)
         guard !searchText.isEmpty else {
             self.movies = []
+            self.isLoading = false
             return
         }
+
+        isLoading = true
 
         currentTask = Task {
             do {
@@ -24,6 +28,8 @@ public class SearchViewModel: ObservableObject {
                 print("Erro ao buscar filmes: \(error)")
                 self.movies = []
             }
+
+            self.isLoading = false
         }
     }
 
