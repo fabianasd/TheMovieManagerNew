@@ -2,9 +2,11 @@ import SwiftUI
 
 struct TheMovieManagerMovieDetailView: View {
     @ObservedObject var viewModel: TheMovieManagerMovieDetailViewModel
-
+    @Environment(\.presentationMode) var presentationMode
+    
     var body: some View {
         VStack {
+            Spacer()
             Group {
                 if let data = viewModel.posterData,
                    let image = UIImage(data: data) {
@@ -14,29 +16,36 @@ struct TheMovieManagerMovieDetailView: View {
                 } else {
                     Color.gray
                         .frame(height: 300)
-                        .overlay(Text("No Image").foregroundColor(.white))
+                        .overlay(Text("Sem imagem").foregroundColor(.white))
                 }
             }
-
-            Text(viewModel.movie.title)
-                .font(.title)
-
-            HStack {
+            
+            Spacer()
+                        
+            VStack(spacing: 16) {
                 Button(action: {
                     viewModel.toggleWatchlist()
                 }) {
-                    Label(viewModel.isWatchlist ? "Remove Watchlist" : "Add to Watchlist", systemImage: "eye")
+                    Label(viewModel.isWatchlist ? "Remover da lista" : "Adicionar a lista", systemImage: "eye")
+                        .foregroundColor(Color.white)
                 }
 
                 Button(action: {
                     viewModel.toggleFavorite()
                 }) {
-                    Label(viewModel.isFavorite ? "Unfavorite" : "Favorite", systemImage: "heart")
+                    Label(viewModel.isFavorite ? "Desmarcar" : "Favorito",
+                          systemImage: "heart")
+                    .foregroundColor(Color.white)
                 }
             }
-
-            Spacer()
+            .padding(.bottom, 16)
         }
+        .padding(.horizontal)
+        .background(Color.black.ignoresSafeArea())
+        .navigationTitle("Filme selecionado")
+        .navigationBarTitleDisplayMode(.inline)
+        .navigationBarBackButtonHidden(true)
+        .navigationBarItems(leading: BackButton())
     }
 }
 

@@ -59,10 +59,9 @@ public struct TheMovieManagerSearchView: View {
                             }
                         }
                         .listStyle(PlainListStyle())
-                        .background(Color.black)
+                        .background(Color.gray.opacity(0.1))
                         .scrollContentBackground(.hidden)
                         .cornerRadius(8)
-                        .listSectionSeparatorTint(.red)
                         .padding(.horizontal, 16)
                     } else if !viewModel.query.trimmingCharacters(in: .whitespaces).isEmpty {
                         VStack {
@@ -81,7 +80,7 @@ public struct TheMovieManagerSearchView: View {
                 .navigationBarTitleDisplayMode(.inline)
                 .foregroundColor(.gray)
                 .background(Color.gray.opacity(0.2))
-                .navigationBarBackButtonHidden(false)
+                .navigationBarBackButtonHidden(true)
                 .navigationBarItems(leading: BackButton())
             }
         }

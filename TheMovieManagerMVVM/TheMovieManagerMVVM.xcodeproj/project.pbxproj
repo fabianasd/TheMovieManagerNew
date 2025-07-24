@@ -370,9 +370,9 @@
 			children = (
 				D3DE755C2E27E5C700763CDD /* TheMovieManagerLogin */,
 				D3752D512E2C78620057A766 /* TheMovieManagerSearch */,
+				D3752D542E2C78910057A766 /* TheMovieManagerMovieDetail */,
 				D3752D522E2C78720057A766 /* TheMovieManagerWatchlist */,
 				D3752D532E2C78830057A766 /* TheMovieManagerFavorites */,
-				D3752D542E2C78910057A766 /* TheMovieManagerMovieDetail */,
 			);
 			path = Modules;
 			sourceTree = "<group>";
