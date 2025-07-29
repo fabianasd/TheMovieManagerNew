@@ -25,7 +25,6 @@ public class SearchViewModel: ObservableObject {
                 let result = try await TMDBClient.search(query: searchText)
                 self.movies = result
             } catch {
-                print("Erro ao buscar filmes: \(error)")
                 self.movies = []
             }
 

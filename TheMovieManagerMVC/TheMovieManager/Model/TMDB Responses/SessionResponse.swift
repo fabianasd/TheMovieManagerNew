@@ -2,7 +2,7 @@ import Foundation
 
 struct SessionResponse: Codable {
     let success: Bool
-    let sessionId: String
+    let sessionId: String?
     
     enum CodingKeys: String, CodingKey {
         case success

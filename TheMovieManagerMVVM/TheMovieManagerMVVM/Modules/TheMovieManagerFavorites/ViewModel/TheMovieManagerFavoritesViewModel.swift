@@ -10,7 +10,6 @@ class TheMovieManagerFavoritesViewModel: ObservableObject {
                 let result = try await TMDBClient.getFavorites()
                 self.movies = result
             } catch {
-                print("Erro ao carregar favoritos: \\(error)")
                 self.movies = []
             }
         }

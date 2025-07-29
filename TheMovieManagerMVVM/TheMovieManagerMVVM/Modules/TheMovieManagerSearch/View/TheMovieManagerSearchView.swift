@@ -81,7 +81,6 @@ public struct TheMovieManagerSearchView: View {
                 .foregroundColor(.gray)
                 .background(Color.gray.opacity(0.2))
                 .navigationBarBackButtonHidden(true)
-                .navigationBarItems(leading: BackButton())
             }
         }
     }

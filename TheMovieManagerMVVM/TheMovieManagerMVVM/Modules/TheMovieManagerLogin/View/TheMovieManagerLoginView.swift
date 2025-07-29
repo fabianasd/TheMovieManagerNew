@@ -80,7 +80,7 @@ public struct TheMovieManagerLoginView: View {
                         .padding(.bottom, 16)
                     
                     NavigationLink(
-                        destination: TheMovieManagerSearchView(viewModel: SearchViewModel()),
+                        destination: MainTabView(),
                         isActive: $viewModel.isAuthenticated
                     ) {
                         EmptyView()

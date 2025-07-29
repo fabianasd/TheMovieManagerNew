@@ -9,7 +9,6 @@ public class LoginViewModel: ObservableObject {
     @Published var isAuthenticated = false
 
     public init() {}
-    
     func login() async {
         isLoading = true
         errorMessage = nil
@@ -17,9 +16,14 @@ public class LoginViewModel: ObservableObject {
         do {
             let token = try await TMDBClient.getRequestToken()
             let success = try await TMDBClient.login(username: username, password: password, requestToken: token)
+
             if success {
                 let sessionId = try await TMDBClient.createSessionId(requestToken: token)
                 TMDBClient.Auth.sessionId = sessionId
+
+                let accountId = try await TMDBClient.getAccountId()
+                TMDBClient.Auth.accountId = accountId
+
                 isAuthenticated = true
             } else {
                 errorMessage = "Falha ao validar credenciais."
@@ -30,4 +34,5 @@ public class LoginViewModel: ObservableObject {
 
         isLoading = false
     }
+
 }

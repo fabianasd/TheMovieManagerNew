@@ -59,6 +59,17 @@ public struct TMDBClient {
     }
 
     // MARK: - Autenticação
+    
+    public static func getAccountId() async throws -> Int {
+        let url = URL(string: Endpoints.base + "/account" + Endpoints.apiKeyParam + "&session_id=\(Auth.sessionId)")!
+        let (data, _) = try await URLSession.shared.data(from: url)
+        let response = try JSONDecoder().decode(AccountResponse.self, from: data)
+        return response.id
+    }
+
+    struct AccountResponse: Decodable {
+        let id: Int
+    }
 
     public static func getRequestToken() async throws -> String {
         let url = Endpoints.getRequestToken.url
@@ -77,9 +88,19 @@ public struct TMDBClient {
         request.httpBody = try JSONEncoder().encode(body)
 
         let (data, _) = try await URLSession.shared.data(for: request)
-        let response = try JSONDecoder().decode(RequestTokenResponse.self, from: data)
-        Auth.requestToken = response.requestToken ?? ""
-        return true
+        
+        let decoded = try JSONDecoder().decode(RequestTokenResponse.self, from: data)
+        
+        if decoded.success {
+            Auth.requestToken = decoded.requestToken ?? ""
+            return true
+        } else {
+            throw TMDBError.loginFailed
+        }
+    }
+
+    enum TMDBError: Error {
+        case loginFailed
     }
 
     public static func createSessionId(requestToken: String) async throws -> String {

@@ -24,6 +24,10 @@ class MovieStore: ObservableObject {
             favorites.append(movie)
         }
     }
+    
+    func getFavorites() -> [Movie] {
+        return favorites
+    }
 
     func toggleWatchlist(_ movie: Movie) {
         if isInWatchlist(movie) {
@@ -31,5 +35,9 @@ class MovieStore: ObservableObject {
         } else {
             watchlist.append(movie)
         }
+    }
+    
+    func getWatchlist() -> [Movie] {
+        return watchlist
     }
 }

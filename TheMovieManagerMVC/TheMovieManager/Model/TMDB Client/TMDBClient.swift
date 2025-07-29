@@ -125,7 +125,7 @@ class TMDBClient {
         //Leva um unico parametro, um gerenciador de conclusao e segue as etapas para criar uma solicitacao HTTP get
         taskForGETRequest(url: Endpoints.getRequestToken.url, response: RequestTokenResponse.self) { (response, error) in
             if let response = response {
-                Auth.requestToken = response.requestToken
+                Auth.requestToken = response.requestToken ?? ""
                 completion(true, nil)
             } else {
                 completion(false, error)
@@ -138,7 +138,7 @@ class TMDBClient {
         let body = LoginRequest(username: username, password: password, requestToken: Auth.requestToken)
         taskForPOSTRequest(url: Endpoints.login.url, responseType: RequestTokenResponse.self, body: body) { (response, error) in
             if let response = response {
-                Auth.requestToken = response.requestToken
+                Auth.requestToken = response.requestToken ?? ""
                 completion(true, nil)
             } else {
                 completion(false, error)
@@ -152,7 +152,7 @@ class TMDBClient {
         taskForPOSTRequest(url: Endpoints.createSessionId.url, responseType: SessionResponse.self, body: body) { (response, error) in
             
             if let response = response {
-                Auth.sessionId = response.sessionId
+                Auth.sessionId = response.sessionId ?? ""
                 completion(true, nil)
             } else {
                 completion(false, error)

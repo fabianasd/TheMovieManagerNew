@@ -4,16 +4,14 @@ import Foundation
 class TheMovieManagerWatchlistViewModel: ObservableObject {
     @Published var movies: [Movie] = []
 
+    private let store = MovieStore.shared
+
     func loadWatchlist() {
-        Task {
-            do {
-                let result = try await TMDBClient.getWatchlist()
-                self.movies = result
-            } catch {
-                print("Erro ao carregar a watchlist: \\(error)")
-                self.movies = []
-            }
-        }
+        movies = store.getWatchlist()
+    }
+
+    func isInWatchlist(_ movie: Movie) -> Bool {
+        return store.isInWatchlist(movie)
     }
 
     func selectMovie(at index: Int) -> Movie {
